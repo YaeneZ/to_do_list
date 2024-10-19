@@ -1,0 +1,16 @@
+This is my Project to learn Rust.
+
+I am creating a ToDoList Program wich has folowing features implemented:
+    -List all the created ToDoLists
+    -A Help Comand
+    -Create new Lists
+    -Delete Lists
+    -Save and Load Lists
+    -Colorisatoin for the Lists to make them look diferent
+    -Unix Time Stamp Converter
+
+Features to come:
+    -Addign ToDos
+    -Editing existing Lists
+    -Check the Status of existing Lists
+    -...
