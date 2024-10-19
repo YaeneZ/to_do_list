@@ -1,0 +1,16 @@
+{
+  "name": "ToDoList",
+  "format_setting": {
+    "attributes": "\u001b[1m",
+    "color": "\u001b[32m",
+    "background": "\u001b[40m"
+  },
+  "list": [
+    {
+      "status": 0,
+      "priority": 0,
+      "value": "Hello",
+      "due": 0
+    }
+  ]
+}
