@@ -1,4 +1,4 @@
-use crate::{check_for_file_exist, get_all_files, load_file, remove_to_do_list, save_file, text_format_manager::*, AppData, FormatSetting, ToDo, ToDoList};
+use crate::{check_for_file_exist, get_all_files, load_file, remove_to_do_list, save_file, text_format_manager::*, to_do_editor::edit_to_do, AppData, FormatSetting, ToDo, ToDoList};
 use std::io::{stdin, stdout, Write};
 
 pub fn commands (prompt: &str, mut app_data: AppData) -> AppData {
@@ -7,6 +7,8 @@ pub fn commands (prompt: &str, mut app_data: AppData) -> AppData {
         "ll" => println!("{}", list_lists()),
         "new" => println!("{}", create_list()),
         "rm" => println!("{}", remove_list()),
+        "edit" => println!("{}", edit_list()),
+        "view" => println!("{}", view_list()),
 
         "exit" | "e" => app_data.active = false,
         _ => println!("Unknown Command, type \"help\" or \"h\" to find help")
@@ -23,6 +25,8 @@ This is a \x1b[92mlist\x1b[0m of all the prompts for this Program\n
     ll      \x1b[92m->\x1b[0m Lists Lists all the lists
     new     \x1b[92m->\x1b[0m Create new empty List
     rm      \x1b[92m->\x1b[0m Remove List
+    edit    \x1b[92m->\x1b[0m Enter edit Mode
+    view    \x1b[92m->\x1b[0m Enter view Mode
 
     exit    \x1b[92m->\x1b[0m Exit this Program
 
@@ -139,4 +143,22 @@ fn remove_list() -> String {
     }
 
     return String::new();
+}
+
+fn edit_list() -> String {
+    let mut input: String = String::new();
+    print!("{}", input_line("edit/name"));
+    stdout().flush().expect("Error, could not print");
+    stdin().read_line(& mut input).expect("An Error occured while reding the Userinput");
+
+    if check_for_file_exist(&input.trim()) {
+        edit_to_do(&input.trim().to_string());
+    }
+
+    let to_do_list: ToDoList = load_file(&input.trim());
+    return format!("Edited {}{}\x1b[0m", text_formater(&to_do_list.format_setting), to_do_list.name);
+}
+
+fn view_list() -> String {
+    return  String::new();
 }

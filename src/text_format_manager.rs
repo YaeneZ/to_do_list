@@ -64,6 +64,10 @@ pub fn input_line(path: &str) -> String {
     return format!("\x1b[92mUser\x1b[0m:\x1b[34m~{} \x1b[0m", path);
 }
 
+pub fn input_line_advanced(user_format_setting: &FormatSetting, user: &str, path: &str) -> String {
+    return format!("{}{}\x1b[0m:\x1b[34m~{} \x1b[0m", text_formater(user_format_setting), user, path);
+}
+
 pub fn text_formater(format_setting: &FormatSetting) -> String {
     return format!("{}{}{}", format_setting.attributes, format_setting.color, format_setting.background);
 }

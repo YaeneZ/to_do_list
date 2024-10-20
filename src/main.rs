@@ -3,6 +3,7 @@ mod serializable_objects;
 mod persistance_manager;
 mod command_definer;
 mod text_format_manager;
+mod to_do_editor;
 
 use serializable_objects::*;
 use persistance_manager::*;
