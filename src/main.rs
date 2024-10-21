@@ -23,13 +23,13 @@ fn main() {
         app_data = commands(prompt.trim(), app_data);
     }
 
-    let (year, month, day, hour, minute, second) = unix_time_stamp_convertor::unix_convert(1728316507);
-    println!("\nDate: {:04}-{:02}-{:02} {:02}:{:02}:{:02}", year, month, day, hour, minute, second);
+    //let (year, month, day, hour, minute, second) = unix_time_stamp_convertor::unix_convert(1728316507);
+    //println!("\nDate: {:04}-{:02}-{:02} {:02}:{:02}:{:02}", year, month, day, hour, minute, second);
 
-    let mut to_do_list: ToDoList = ToDoList::new("To Do List".to_string(), FormatSetting::default(), Vec::new());
-    let to_do: ToDo = ToDo::new(0, 0, "To Do".to_string(), 0);
-    to_do_list.list.push(to_do);
-    println!("{}", to_do_list.list[0].value);
+    //let mut to_do_list: ToDoList = ToDoList::new("To Do List".to_string(), FormatSetting::default(), Vec::new());
+    //let to_do: ToDo = ToDo::new(0, 0, "To Do".to_string(), 0);
+    //to_do_list.list.push(to_do);
+    //println!("{}", to_do_list.list[0].value);
 
     //let to_do_list_new = load_file("Todolist");
     //println!("{}", to_do_list_new.list[0].value);

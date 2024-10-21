@@ -1,6 +1,6 @@
 use std::fs::{remove_file, File};
 use std::io::{Read, Write};
-use crate::{SaveFiles, ToDoList};
+use crate::{text_formater, SaveFiles, ToDoList};
 
 pub fn save_file(to_do_list: &ToDoList) {
     let json_string = serde_json::to_string_pretty(to_do_list).expect("Failed to Serialize to Json!");
@@ -9,6 +9,8 @@ pub fn save_file(to_do_list: &ToDoList) {
     file.write_all(json_string.as_bytes()).expect("Failed to write to the File");
 
     check_for_file(&to_do_list.name);
+
+    println!("saved {}{}\x1b[0m", text_formater(&to_do_list.format_setting), to_do_list.name);
 }
 
 pub fn load_file(file_name: &str) -> ToDoList {
